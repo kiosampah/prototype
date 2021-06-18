@@ -1,0 +1,89 @@
+<?php
+require("../../koneksi.php");
+session_start();
+
+if(!isset($_SESSION['admin']))
+{
+	header("location:../");
+	exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" type="text/css" href="../../assets/bulma/css/bulma.min.css">
+	<title>Dashboard - Kiosampah</title>
+</head>
+<body>
+
+<div class="container">
+
+	<div class="section">
+
+	<a class="button is-danger" href="exit.php">
+		KELUAR
+	</a>
+	&nbsp;&nbsp;&nbsp;
+	<a class="button is-primary" href="add.php">
+		TAMBAH DATA
+	</a>
+
+	<br><br>
+
+	<h2>
+		Halaman Dashboard Admin
+		<hr>
+	</h2>
+
+<div class="table-container">
+
+		<table class="table is-bordered" border="1">
+		<tr>
+			<th>#</th>
+			<th>Produk</th>
+			<th>Penjual</th>
+			<th>Harga</th>
+			<th>Stok</th>
+			<th>Deskripsi</th>
+			<th>Gambar</th>
+			<th>Daerah</th>
+			<th>Rating</th>
+			<th>Aksi</th>
+		</tr>
+
+		<tr>
+		<?php  
+		$i = 1;
+		$query = mysqli_query($conn,"SELECT * FROM produk");
+		while($data = mysqli_fetch_array($query))
+		{
+		?>
+			<td><?= $i++; ?></td>
+			<td><?= $data['nama']; ?></td>
+			<td><?= $data['penjual']; ?></td>
+			<td><?= $data['harga']; ?></td>
+			<td><?= $data['stok']; ?></td>
+			<td><?= $data['deskripsi']; ?></td>
+			<td><?= $data['gambar']; ?></td>
+			<td><?= $data['daerah']; ?></td>
+			<td><?= $data['rate']; ?></td>
+			<td>
+			<a class="button is-small is-danger" href="delete.php?id=<?= $data['id'];?>">Hapus</a>
+			&nbsp;
+			<a class="button is-small is-primary" href="update.php?id=<?= $data['id'];?>">Ubah</a>
+			</td>
+		</tr>
+		<?php 
+		}
+		 ?>
+	</table>
+
+</div>
+
+	</div>
+
+</div>
+
+</body>
+</html>

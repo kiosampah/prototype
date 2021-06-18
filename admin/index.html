@@ -1,0 +1,64 @@
+<?php 
+session_start();
+if(isset($_SESSION['admin']))
+{
+	header("location:dashboard/");
+	exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" type="text/css" href="../assets/bulma/css/bulma.min.css">
+	<title>Admin - Login</title>
+</head>
+<body>
+
+<div class="container">
+	<div class="section">
+
+	<a href="../">Beranda</a>
+
+	<form action="" method="POST">
+		<div class="field">
+		<label class="label">
+			Username :
+		</label>
+		<input type="text" class="control" name="username">
+		</div>
+		<div class="field">
+		<label class="label">
+			Password
+		</label>
+		<input type="password" class="control" name="password">
+		</div>
+		<div class="field">
+		<button class="button is-success" type="submit" name="masuk">
+			Masuk
+		</button>
+		</div>	
+	</form>	
+	
+	</div>
+</div>
+
+<?php 
+
+$user = $_POST['username'];
+$password = $_POST['password'];
+
+$user = htmlspecialchars($user);
+$password = htmlspecialchars($password);
+
+if($user == "admin" && $password == "kio123id")
+{
+	$_SESSION['admin'] = true;
+	header("location:dashboard/");
+	exit;
+}
+
+?>
+
+</body>
+</html>
