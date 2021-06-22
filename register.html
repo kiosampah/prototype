@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" type="text/css" href="assets/bulma/css/bulma.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-	<title>Masuk - Kiosampah</title>
+	<title>Daftar - Kiosampah</title>
 </head>
 <body>
+
 <div class="container">
 	
 			<nav class="navbar" role="navigation" aria-label="main navigation">
@@ -53,13 +53,27 @@
 		<div class="card-content">
 			
 		<h2 class="title">
-			<i class="material-icons">login</i>
-			&nbsp; Masuk - Kiosampah
+			<i class="material-icons">app_registration</i>
+			&nbsp; Daftar - Kiosampah
 		</h2>
 
 			<div class="content">
 				
 					<form action="#" method="POST">
+
+						<div class="field">
+							<label class="label">
+								Email:
+							</label>
+							<input type="text" class="input" name="email" />
+						</div>
+
+						<div class="field">
+							<label class="label">
+								Name:
+							</label>
+							<input type="text" class="input" name="name" />
+						</div>
 						
 						<div class="field">
 							<label class="label">
@@ -78,10 +92,9 @@
 						<div class="control">
 							<button type="submit" name="masuk" class="button is-primary">Masuk</button>
 						</div>
-
 						<br>
 						<div class="field">
-							<p>Sudah Punya Akun? Silahkan <a href="register.html">Daftar</a></p>
+							<p>Sudah Mendaftar? Silahkan <a href="login.html">Masuk</a></p>
 						</div>
 
 					</form>
@@ -101,5 +114,6 @@
 // Navbar
 document.addEventListener("DOMContentLoaded",()=>{const e=Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"),0);e.length>0&&e.forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.target,a=document.getElementById(t);e.classList.toggle("is-active"),a.classList.toggle("is-active")})})});	
 </script>
+
 </body>
 </html>
